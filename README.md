@@ -257,5 +257,5 @@ numbers. If the files do not contain enough information, say so and do not guess
 ## Files
 
 - `Shirt Colour and Pattern Planner.csv` — shirt inventory, priorities, and day availability.
-- `Untitled.txt` — selection rules applied to the valid shirts.
+- `Rules.txt` — selection rules applied to the valid shirts.
 - `README.md` — experiment description and sample interactions.
