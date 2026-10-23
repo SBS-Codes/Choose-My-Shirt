@@ -1,0 +1,10 @@
+Shirt ID,Color,Pattern,Color Priority,Pattern Priority,Monday,Tuesday,Wednesday,Thursday,Friday,Notes
+S01,White,Checker,1,2,Yes,No,Yes,No,Yes,
+S02,White,Plain,1,1,Yes,No,Yes,No,Yes,
+S03,White,Lines,1,3,Yes,No,Yes,No,Yes,
+S04,Blue,Checker,2,2,Yes,Yes,No,No,No,
+S05,Blue,Plain,2,1,Yes,Yes,No,No,No,
+S06,Gray,Checker,3,2,No,No,Yes,Yes,No,
+S07,Gray,Lines,3,3,No,No,Yes,Yes,No,
+S08,Maroon,Plain,4,1,Yes,No,No,No,Yes,
+S09,Black,Lines,5,3,No,No,No,Yes,Yes,

@@ -1,0 +1,6 @@
+Rules
+If there are two or more shirts that are valid for a day then the following rules should be applied to determine the shirt to be worn:
+1. The shirt with the lowest priority wins. 
+2. Priority is the sum of color priority and pattern priority.
+3. If there is a white plain shirt in the list, then it should be chosen
+4. If there is a plain shirt then it should be chosen over other patterns
