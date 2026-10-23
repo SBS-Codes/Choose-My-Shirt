@@ -44,7 +44,7 @@ The available shirts are:
 
 The day columns contain data only for Monday through Friday. There is no Saturday or Sunday availability data.
 
-### `Untitled.txt`
+### `Rules.txt`
 
 This file contains the shirt-selection rules:
 
