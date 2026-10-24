@@ -237,6 +237,57 @@ used. If the information is missing, say "Not enough information" and name
 the missing field.
 ```
 
+## Asking questions about the rules
+
+The model can answer questions about the selection rules themselves, not only questions asking for a shirt recommendation. These questions test whether the model can explain when a rule applies, when it does not apply, and how the rules relate to the planner data.
+
+### Ask when a plain shirt is not selected
+
+```text
+In what circumstance is a plain shirt not selected over another pattern?
+Use only the rule file and planner. Explain which rule cannot be applied and
+identify any situation where the rules do not define a clear precedence.
+```
+
+Expected grounded behavior: explain that a plain shirt cannot be preferred when no valid plain shirt is available for that day. If the priority rule conflicts with the plain-shirt preference, the model should identify the ambiguity instead of inventing a precedence order.
+
+### Ask when a Checker shirt is selected
+
+```text
+What are the circumstances under which a Checker shirt is selected?
+List the relevant rules, explain the required availability and priority
+conditions, and give an example from the planner.
+```
+
+Expected grounded behavior: identify that the Checker shirt must be valid, that no valid plain shirt should be preferred, and that the Checker shirt must have the lowest applicable total priority. With the supplied data, S06 Gray Checker is selected on Thursday.
+
+### Ask which rules apply to a specific choice
+
+```text
+Why was S05 selected on Tuesday?
+Show the valid Tuesday shirts, calculate their total priorities, and list the
+rule numbers that support or do not support the choice.
+```
+
+### Ask whether a rule applies
+
+```text
+Does the white-plain rule apply on Thursday?
+Check whether a valid White Plain shirt exists on Thursday. Answer yes or no,
+then explain why using the planner and rule number 3.
+```
+
+### Ask about an unsupported rule scenario
+
+```text
+What happens if a valid plain shirt has a higher total priority than a valid
+patterned shirt?
+Answer only from the supplied rules. If the documents do not specify which
+rule takes precedence, say that the situation is ambiguous.
+```
+
+These rule-focused prompts help demonstrate grounded reasoning: the model must connect an explanation to a numbered rule and should clearly separate a documented conclusion from an unresolved case.
+
 ## Example prompt
 
 ```text
@@ -257,5 +308,5 @@ numbers. If the files do not contain enough information, say so and do not guess
 ## Files
 
 - `Shirt Colour and Pattern Planner.csv` — shirt inventory, priorities, and day availability.
-- `Rules.txt` — selection rules applied to the valid shirts.
+- `Untitled.txt` — selection rules applied to the valid shirts.
 - `README.md` — experiment description and sample interactions.
