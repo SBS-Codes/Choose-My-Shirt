@@ -288,6 +288,42 @@ rule takes precedence, say that the situation is ambiguous.
 
 These rule-focused prompts help demonstrate grounded reasoning: the model must connect an explanation to a numbered rule and should clearly separate a documented conclusion from an unresolved case.
 
+### Complete rules-explainer example
+
+**Prompt:**
+
+```text
+Explain all the shirt-selection rules in plain language. For each rule,
+describe when it applies, give an example using the planner, and identify any
+case that the documents do not resolve. Use only the CSV and the rules file.
+Do not add fashion advice or invent missing precedence rules.
+```
+
+**Sample output:**
+
+```text
+Rule 1: The lowest priority wins.
+When multiple shirts are valid for a day, compare their total priorities and
+prefer the shirt with the lowest value.
+
+Rule 2: Priority is the sum of color and pattern priority.
+For example, S06 Gray Checker has a total priority of 3 + 2 = 5.
+
+Rule 3: Choose a white plain shirt when one is in the valid list.
+On Thursday, this rule cannot be applied because S02 White Plain is marked No
+for Thursday. On Friday, S02 is valid, so this rule supports choosing it.
+
+Rule 4: Prefer a plain shirt over other patterns.
+This rule supports S05 Blue Plain over S04 Blue Checker on Tuesday. It cannot
+be applied on Thursday because no valid plain shirt is available.
+
+Unresolved case:
+The documents do not clearly state which rule takes precedence if a valid
+plain shirt has a higher total priority than a valid patterned shirt. The
+model should report that situation as ambiguous rather than inventing a new
+rule.
+```
+
 ## Example prompt
 
 ```text
@@ -308,5 +344,5 @@ numbers. If the files do not contain enough information, say so and do not guess
 ## Files
 
 - `Shirt Colour and Pattern Planner.csv` — shirt inventory, priorities, and day availability.
-- `Untitled.txt` — selection rules applied to the valid shirts.
+- `Rules.txt` — selection rules applied to the valid shirts.
 - `README.md` — experiment description and sample interactions.
